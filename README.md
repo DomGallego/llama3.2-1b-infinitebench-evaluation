@@ -4,7 +4,7 @@
 
 This project investigates the capabilities of the **Meta Llama 3.2 1B Instruct** model in handling and reasoning over extremely long narrative contexts.  Leveraging the challenging **InfiniteBench** benchmark, specifically the `longbook_choice_eng` split of the `En.MC` task, this evaluation focuses into the model's performance on complex multiple-choice questions derived from lengthy literary works. InfiniteBench pushes Language Models (LLMs) to their limits with contexts exceeding 100,000 tokens. This project specifically tests the Meta Llama 3.2 1B model's ability to process contexts up to its 128k token limit and extract relevant information for accurate question answering.
 
-This initiative is driven by the growing importance of Long Context Large Language Models, and is inspired by the cutting-edge research presented in:
+This initiative is driven by the growing importance of Long Context Large Language Models, and is inspired by the research presented in:
 
 > **∞Bench: Extending Long Context Evaluation Beyond 100K Tokens**
 > Xinrong Zhang, Yingfa Chen, Shengding Hu, Zihang Xu, Junhao Chen, Moo Khai Hao, Xu Han, Zhen Leng Thai, Shuo Wang, Zhiyuan Liu, Maosong Sun
@@ -13,16 +13,16 @@ This initiative is driven by the growing importance of Long Context Large Langua
 ## Methodology
 
 
-To conduct this evaluation, a systematic methodology was implemented, encompassing the following key steps:
+To conduct this evaluation, the following steps were performed:
 
-* **Model Integration:** The state-of-the-art **Meta Llama 3.2 1B Instruct** model was seamlessly integrated from the Hugging Face Hub ([meta-llama/Llama-3.2-1B-Instruct](https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct)).
+* **Model Integration:** The state-of-the-art **Meta Llama 3.2 1B Instruct** model was integrated from the Hugging Face Hub ([meta-llama/Llama-3.2-1B-Instruct](https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct)).
 * **Benchmark Dataset Utilization:** The industry-standard **InfiniteBench** dataset was employed, sourced directly from Hugging Face Datasets ([xinrongzhang2022/InfiniteBench](https://huggingface.co/datasets/xinrongzhang2022/InfiniteBench)). The evaluation focused on the `longbook_choice_eng` split within the `En.MC` task, providing a targeted assessment of long-context narrative understanding.
 * **Prompt Engineering:**  A robust prompt template, carefully adapted from the research paper "∞Bench: Extending Long Context Evaluation Beyond 100K Tokens," was utilized. Iterative refinements and variations were implemented across different evaluation versions to optimize performance.
-* **Context Management:**  To address the 128k token context window limitation of the Meta Llama 3.2 1B model, a strategic truncation technique, mirroring the approach detailed in the ∞Bench paper, was implemented. This method intelligently preserves crucial information from both the beginning and end of the extensive input contexts.
+* **Context Management:**  To address the 128k token context window limitation of the Meta Llama 3.2 1B model, a strategic truncation technique, mirroring the approach detailed in the ∞Bench paper, was implemented. This method preserves crucial information from both the beginning and end of the extensive input contexts.
 * **Performance Measurement:** Accuracy was chosen as the core metric to objectively quantify the model's success in selecting the correct answer from a set of multiple-choice options, providing a clear and interpretable measure of performance.
 * **Configuration Variants:**  To gain a comprehensive understanding of the model's behavior, multiple evaluation versions were executed, systematically varying prompt templates and key hyperparameters, including temperature and top\_p, allowing for a nuanced analysis of their impact.
 
-Context truncation was achieved using a method that intelligently retained segments from the start and end of the input text, ensuring crucial information was preserved:
+Context truncation was achieved using a method that retained segments from the start and end of the input text, ensuring crucial information was preserved:
 
 ```python
 return prompt_tokens[:max_length // 2] + prompt_tokens[-max_length // 2:]
