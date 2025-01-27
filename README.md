@@ -2,15 +2,13 @@
 
 ## Project Overview
 
-This project investigates the capabilities of the **Meta Llama 3.2 1B Instruct** model in handling and reasoning over extremely long narrative contexts.  Leveraging the challenging **InfiniteBench** benchmark, specifically the `longbook_choice_eng` split of the `En.MC` task, this evaluation delves into the model's performance on complex multiple-choice questions derived from lengthy literary works. InfiniteBench is renowned for its rigorous demands, pushing Language Models (LLMs) to their limits with contexts exceeding 100,000 tokens. This project specifically tests the Meta Llama 3.2 1B model's ability to process contexts up to its 128k token limit and extract relevant information for accurate question answering.
+This project investigates the capabilities of the **Meta Llama 3.2 1B Instruct** model in handling and reasoning over extremely long narrative contexts.  Leveraging the challenging **InfiniteBench** benchmark, specifically the `longbook_choice_eng` split of the `En.MC` task, this evaluation focuses into the model's performance on complex multiple-choice questions derived from lengthy literary works. InfiniteBench pushes Language Models (LLMs) to their limits with contexts exceeding 100,000 tokens. This project specifically tests the Meta Llama 3.2 1B model's ability to process contexts up to its 128k token limit and extract relevant information for accurate question answering.
 
 This initiative is driven by the growing importance of Long Context Large Language Models, and is inspired by the cutting-edge research presented in:
 
 > **∞Bench: Extending Long Context Evaluation Beyond 100K Tokens**
 > Xinrong Zhang, Yingfa Chen, Shengding Hu, Zihang Xu, Junhao Chen, Moo Khai Hao, Xu Han, Zhen Leng Thai, Shuo Wang, Zhiyuan Liu, Maosong Sun
 > [arXiv:2402.13718](https://arxiv.org/abs/2402.13718)
-
-The primary goal is to rigorously assess the model's accuracy in answering questions that require deep comprehension of extended narratives, while also exploring the impact of various prompt engineering strategies and hyperparameter configurations on performance. This project demonstrates a practical approach to benchmarking and fine-tuning LLMs for real-world applications requiring long-context understanding.
 
 ## Methodology
 
